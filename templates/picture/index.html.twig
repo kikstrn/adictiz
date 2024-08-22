@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adictiz{% endblock %}
+
+{% block body %}
+    <div class="container w-50">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <img class="logo mx-auto" src="https://www.adictiz.com/wp-content/uploads/2023/04/logo-adictiz-hd.png" alt="logo"/>
+            </div>
+            {{ form_start(form) }}
+            <div class="col-12 mt-5">
+                {{ form_row(form.files) }}
+                <div class="d-grid gap-2">
+                    <input class="btn submit_button" type="submit" value="Envoyer">
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+        
+{% endblock %}

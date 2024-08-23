@@ -24,25 +24,25 @@ class PictureController extends AbstractController
         ): Response
     {
         $picture = new Picture();
-        $form = $this->createForm(PictureType::class);
+        $form = $this->createForm(PictureType::class, $picture);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $arrayFiles = $form->get('files')->getData();
-            dd($arrayFiles);
-            foreach ($arrayFiles as $file) {
-                dd($file);
+            $dataFiles = $form['files']->getData();
+            $arrayFile = [];
+            foreach ($dataFiles as $file) {
                 // On génère un nouveau nom de fichier
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
                 // On copie le fichier dans le dossier uploads
                 $file->move(
-                    $this->getParameter('images_directory'),
+                    $this->getParameter('picture_directory'),
                     $fileName
                 );
 
-                // On crée l'image dans la base de données
-                $picture->setName($file);
+                array_push($arrayFile, $fileName);
+
+                $picture->setFiles($arrayFile);
 
                 $entityManager->persist($picture);
                 $entityManager->flush();

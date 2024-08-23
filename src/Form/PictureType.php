@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\All;
+use Symfony\Component\Form\CallbackTransformer;
 
 class PictureType extends AbstractType
 {
@@ -19,24 +20,24 @@ class PictureType extends AbstractType
             'label' => 'Insérez une ou plusieurs images',
             'data_class'=> null,
             'empty_data' => '',
-            'multiple' => true,
             'mapped' => false,
+            'multiple' => true,
             'required' => true,
             'constraints' => [
-                new All([
-                    'constraints' => [
-                        new File([
+                new All([ 'constraints' => [
+                    new File([
                         'maxSize' => '5M',
                         'mimeTypes' => [
-                                        'application/pdf',
-                                        'image/*',
-                                        'application/x-pdf',
-                                        'text/plain',
-                        ]
-                    ]),
-                ],
-            ]),
-        ]
+                            'image/jpeg',
+                            'image/png'
+                        ],
+                    ])
+                ]
+                ])
+            ],
+            'attr' => [
+                'accept' => '.jpg, .jpeg, .png'
+            ],
         ]);
     }
 

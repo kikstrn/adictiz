@@ -49,9 +49,7 @@ class PictureController extends AbstractController
 
                 $this->addFlash('success', 'Envoyé avec succès.');
 
-                return $this->render('picture/index.html.twig', [
-                    'form' => $form,
-                ]); 
+                return $this->redirectToRoute('app_picture_upload');
             }
         }
 

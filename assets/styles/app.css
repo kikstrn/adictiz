@@ -12,3 +12,11 @@ body {
     color: #ffffff;
     background-color: #0092FF;
 }
+
+.alert {
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin: auto;
+}

@@ -3,12 +3,12 @@
 {% block title %}Adictiz{% endblock %}
 
 {% block body %}
-    <div class="container w-50">
     {% for message in app.flashes('success') %}
-    <div class="flash-">
-        {{ message }}
-    </div>
-{% endfor %}
+        <div class="alert alert-success" class="btn-close" aria-label="Close" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="container w-50">
         <div class="row">
             <div class="col-12 mt-5">
                 <img class="logo mx-auto" src="https://www.adictiz.com/wp-content/uploads/2023/04/logo-adictiz-hd.png" alt="logo"/>

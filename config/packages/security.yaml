@@ -17,9 +17,12 @@ security:
             lazy: true
             provider: app_user_provider
             form_login:
-                login_path: app_login
-                check_path: app_login
+                login_path: back-office
+                check_path: back-office
+                default_target_path: admin
+                always_use_default_target_path: true
                 enable_csrf: true
+                use_referer: true
             logout:
                 path: app_logout
                 # where to redirect after logout

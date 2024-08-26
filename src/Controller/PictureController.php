@@ -30,7 +30,9 @@ class PictureController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $dataFiles = $form['files']->getData();
             $arrayFile = [];
+
             foreach ($dataFiles as $file) {
+                dump($file);
                 // On génère un nouveau nom de fichier
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
@@ -43,14 +45,15 @@ class PictureController extends AbstractController
                 array_push($arrayFile, $fileName);
 
                 $picture->setFiles($arrayFile);
-
-                $entityManager->persist($picture);
-                $entityManager->flush();
-
-                $this->addFlash('success', 'Envoyé avec succès.');
-
-                return $this->redirectToRoute('app_picture_upload');
             }
+            
+            // On enregistre le tableau de fichiers dans la bdd
+            $entityManager->persist($picture);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Envoyé avec succès.');
+
+            return $this->redirectToRoute('app_picture_upload');
         }
 
         return $this->render('picture/index.html.twig', [

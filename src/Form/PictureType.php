@@ -18,9 +18,6 @@ class PictureType extends AbstractType
         $builder
         ->add('files', FileType::class, [
             'label' => 'Insérez une ou plusieurs images',
-            'data_class'=> null,
-            'empty_data' => '',
-            'mapped' => false,
             'multiple' => true,
             'required' => true,
             'constraints' => [

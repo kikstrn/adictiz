@@ -19,10 +19,11 @@ Copier le .env afin de créer un .env.local
 Modifier le mot de passe, le nom de la base de données et le user dans le .env.local afin de connecter la base de données.
 
 Dans la partie AWS :
+
     - S3_STORAGE_KEY= *Renseigner le nom d'utilisateur*
     - S3_STORAGE_SECRET= *Renseigner le mot de passe d'utilisateur*
     - S3_BUCKET_NAME= *Renseigner le nom du bucket*
-    - S3_STORAGE_PREFIX= *Renseigner le prefix (laisser un string vide afin de stocker les    données à la racine du bucket)*
+    - S3_STORAGE_PREFIX= *Renseigner le prefix (laisser un string vide afin de stocker les données à la racine du bucket)*
     - APP_UPLOADS_SOURCE= *Renseigner ceci : `uploads.storage.aws`*
     - S3_ENDPOINT= $Renseigner ceci : `http://127.0.0.1:9000`*
 
@@ -35,7 +36,7 @@ Démarrer le docker : `docker-compose up -d`
 ## Usage
 
 Une fois l'installation terminée, il vous faudra créer le bucket via le dashboard.
-Afin d'accéder au dashboard du cloud storage, il vous suffira de cliquer sur l'url suivante : [Dashboard_Cloud_Storage] (https://127.0.0.1:9001) et d'y renseigner l'identifiant et le mot de passe précédemment renseigner dans le .env.local dans la partie AWS.
+Afin d'accéder au dashboard du cloud storage, il vous suffira de cliquer sur l'url suivante : [Dashboard_Cloud_Storage](https://127.0.0.1:9001) et d'y renseigner l'identifiant et le mot de passe précédemment renseigner dans le .env.local dans la partie AWS.
 Ensuite il vous faudra créer un bucket dans l'onglet *Buckets* et y renseigné le nom que vous avez attribué précédemment dans le .env.local dans la partie AWS.
 
 Une fois le serveur lancé, la partie utilisateur se lancera via le lien suivant : [Front_Office](https://127.0.0.1:8000).

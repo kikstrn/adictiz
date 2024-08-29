@@ -1,8 +1,12 @@
 vich_uploader:
     db_driver: orm
+    storage: flysystem
 
-    #mappings:
-    #    products:
-    #        uri_prefix: /images/products
-    #        upload_destination: '%kernel.project_dir%/public/images/products'
-    #        namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+    metadata:
+        type: attribute
+
+    mappings:
+       files:
+           uri_prefix: '%env(S3_STORAGE_PREFIX)%'
+           upload_destination: uploads.storage.aws
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

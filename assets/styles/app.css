@@ -20,3 +20,15 @@ body {
     display: block;
     margin: auto;
 }
+
+img {
+    width: 20%;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    display: grid;
+}

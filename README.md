@@ -7,3 +7,7 @@ Un back-office permet aux administrateurs de visualiser ces images et de les gé
 `composer install`
 
 `npm install`
+
+Modifier le mot de passe et le user dans le .env.local afin de connecter la base de données.
+
+## Usage

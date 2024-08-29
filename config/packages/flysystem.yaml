@@ -1,0 +1,30 @@
+services:
+    Aws\S3\S3Client:
+        arguments:
+            - version: 'latest'
+              region: 'eu-east-1'
+              credentials:
+                  key: '%env(S3_STORAGE_KEY)%'
+                  secret: '%env(S3_STORAGE_SECRET)%'
+
+flysystem:
+    storages:
+        uploads.storage.aws:
+            adapter: 'aws'
+            options:
+                client: 'Aws\S3\S3Client'
+                bucket: '%env(S3_BUCKET_NAME)%'
+                prefix: '%env(S3_STORAGE_PREFIX)%'
+
+        uploads.storage.local:
+            adapter: 'local'
+            options:
+                directory: '%kernel.project_dir%/var/storage/uploads'
+
+        uploads.storage.memory:
+            adapter: 'memory'
+
+        uploads.storage:
+            adapter: 'lazy'
+            options:
+                source: '%env(APP_UPLOADS_SOURCE)%'
